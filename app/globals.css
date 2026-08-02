@@ -22,6 +22,9 @@
   --color-border: rgba(79, 93, 57, 0.15);
 
   --color-section: #f7f3eb;
+    --color-values-bg: #66714a;
+      --color-values-card: rgba(255, 255, 255, 0.08);
+      --color-values-card-hover: rgba(255, 255, 255, 0.12);
 }
 
 @theme inline {
@@ -49,6 +52,10 @@
   --color-border: var(--color-border);
 
   --color-section: var(--color-section);
+
+    --color-values-bg: var(--color-values-bg);
+      --color-values-card: var(--color-values-card);
+      --color-values-card-hover: var(--color-values-card-hover);
 }
 
 @media (prefers-color-scheme: dark) {
