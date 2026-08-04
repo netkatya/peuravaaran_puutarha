@@ -67,7 +67,7 @@ export default function Retailers() {
           {retailerGroups.map((group) => (
             <article
               key={group.city}
-              className="rounded-[2rem] border border-border bg-section p-7"
+              className="rounded-4xl border border-border bg-section p-7"
             >
               <div className="flex items-center gap-3">
                 <div className="flex size-10 items-center justify-center rounded-full bg-background">

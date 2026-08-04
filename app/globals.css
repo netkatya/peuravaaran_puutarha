@@ -33,7 +33,7 @@
   --color-foreground: var(--foreground-base);
 
   --font-sans: var(--font-inter);
-  --font-heading: var(--font-cormorant);
+    --font-heading: var(--font-cormorant);
 
   --color-hero-title: var(--hero-title);
   --color-hero-subtitle: var(--hero-subtitle);
