@@ -6,18 +6,19 @@ import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
+import { products } from "@/app/data/products";
+
 import "swiper/css";
 import "swiper/css/navigation";
-import { products } from "@/app/data/products";
 
 export default function ProductsSlider() {
   return (
     <section
       id="tuotteet"
-      className="overflow-hidden bg-section px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-32"
+      className="bg-section px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-32"
     >
       <div className="mx-auto max-w-7xl">
-        <div className="flex items-end justify-between gap-8">
+        <div className="flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-3xl">
             <p className="mb-4 text-sm font-medium uppercase tracking-[0.24em] text-accent">
               Tuotteemme
@@ -54,8 +55,8 @@ export default function ProductsSlider() {
 
         <Swiper
           modules={[Navigation, Autoplay]}
-          spaceBetween={24}
-          slidesPerView={1.1}
+          slidesPerView={1}
+          spaceBetween={16}
           watchOverflow
           navigation={{
             prevEl: ".products-prev",
@@ -69,33 +70,33 @@ export default function ProductsSlider() {
           breakpoints={{
             640: {
               slidesPerView: 2,
+              spaceBetween: 20,
             },
             1024: {
               slidesPerView: 3,
+              spaceBetween: 24,
             },
           }}
-          className="mt-12 sm:mt-16"
+          className="mt-12 overflow-hidden sm:mt-16"
         >
           {products.map((product) => (
             <SwiperSlide key={product.title} className="h-auto">
               <article className="group h-full">
-                <div className="block h-full">
-                  <div className="h-full overflow-hidden rounded-4xl border border-border bg-background">
-                    <div className="relative aspect-4/3 bg-cream/40">
-                      <Image
-                        src={product.image}
-                        alt={product.title}
-                        fill
-                        sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 90vw"
-                        className="object-contain p-6 transition-transform duration-500 group-hover:scale-[1.04] sm:p-8"
-                      />
-                    </div>
+                <div className="h-full overflow-hidden rounded-4xl border border-border bg-background">
+                  <div className="relative aspect-4/3 bg-cream/40">
+                    <Image
+                      src={product.image}
+                      alt={product.title}
+                      fill
+                      sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
+                      className="object-contain p-6 transition-transform duration-500 group-hover:scale-105 sm:p-8"
+                    />
+                  </div>
 
-                    <div className="flex items-center justify-between gap-4 p-6">
-                      <h3 className="font-heading text-3xl font-medium text-primary-dark">
-                        {product.title}
-                      </h3>
-                    </div>
+                  <div className="p-6">
+                    <h3 className="font-heading text-3xl font-medium text-primary-dark">
+                      {product.title}
+                    </h3>
                   </div>
                 </div>
               </article>

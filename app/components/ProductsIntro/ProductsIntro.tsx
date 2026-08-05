@@ -19,7 +19,7 @@ export default function ProductsIntro() {
       {/* Soft gradient for better readability */}
       <div className="absolute inset-0 bg-gradient-to-r from-white via-white/50 to-white/10" />
 
-      <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-32">
+      <div className="relative mx-auto max-w-7xl px-4 pb-20 pt-40 sm:px-6 sm:pb-28 sm:pt-44 lg:px-8 lg:pb-32 lg:pt-48">
         <div className="max-w-3xl">
           <p className="text-sm font-medium uppercase tracking-[0.24em] text-accent">
             Tuotteemme

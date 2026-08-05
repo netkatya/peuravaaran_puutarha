@@ -47,7 +47,7 @@ const contactDetails = [
 
 export default function ContactSection() {
   return (
-    <section className="bg-section px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-32">
+    <section className="bg-section px-4 pb-20 pt-40 sm:px-6 sm:pb-28 sm:pt-44 lg:px-8 lg:pb-32 lg:pt-48">
       <div className="mx-auto max-w-7xl">
         {/* Section heading */}
         <div className="mx-auto max-w-3xl text-center">
