@@ -131,7 +131,7 @@ export default function Header() {
         }`}
       >
         <Image
-          src="/Hero/hero.jpg"
+          src="/hero/hero.jpg"
           alt=""
           fill
           sizes="100vw"
@@ -152,7 +152,7 @@ export default function Header() {
               aria-label="Peuravaaran Puutarha Oy – Etusivu"
             >
               <Image
-                src="/Header/logo.png"
+                src="/header/logo.png"
                 alt="Peuravaaran Puutarha Oy"
                 width={90}
                 height={90}
