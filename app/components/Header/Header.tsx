@@ -92,7 +92,7 @@ export default function Header() {
             className="flex items-center gap-4"
           >
             <Image
-              src="/Header/logo.png"
+              src="/header/logo.png"
               alt="Peuravaaran Puutarha Oy"
               width={80}
               height={80}

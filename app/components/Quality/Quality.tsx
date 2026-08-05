@@ -36,7 +36,7 @@ export default function QualitySection() {
         <div className="grid items-center gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-20">
           <div className="relative aspect-[3/4] overflow-hidden rounded-[2rem]">
             <Image
-              src="/Quality/quality.jpg"
+              src="/quality/quality.jpg"
               alt="Tuoreita suomalaisia tomaatteja"
               fill
               sizes="(min-width: 1024px) 58vw, 100vw"
