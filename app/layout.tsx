@@ -4,6 +4,7 @@ import "./globals.css";
 
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
+import CallButton from "./components/CallButton/CallButton";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -97,6 +98,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <Header />
+        <CallButton />
         {children}
         <Footer />
       </body>
