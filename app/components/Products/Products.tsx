@@ -1,15 +1,8 @@
-"use client";
-
 import Image from "next/image";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import { Navigation, Pagination } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
 
 import { products } from "@/app/data/products";
-
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 export default function Products() {
   return (
@@ -37,35 +30,30 @@ export default function Products() {
           </p>
         </div>
 
-        <div className="relative mt-14 sm:mt-16">
-          <Swiper
-            modules={[Navigation, Pagination]}
-            slidesPerView={1}
-            spaceBetween={24}
-            speed={700}
-            watchOverflow
-            navigation={{
-              prevEl: ".products-page-prev",
-              nextEl: ".products-page-next",
-            }}
-            pagination={{
-              el: ".products-page-pagination",
-              clickable: true,
-            }}
-            className="overflow-hidden rounded-[2rem] bg-background lg:rounded-[3rem]"
-          >
-            {products.map((product, index) => (
-              <SwiperSlide key={product.id}>
-                <article className="grid lg:grid-cols-[1.08fr_0.92fr]">
-                  <div className="relative flex min-h-[380px] items-center justify-center overflow-hidden bg-cream/40 p-6 sm:min-h-[480px] sm:p-10 lg:min-h-[680px] lg:p-14">
-                    <div className="relative min-h-[330px] w-full flex-1">
+        <div className="mt-14 space-y-10 sm:mt-16 sm:space-y-14 lg:space-y-20">
+          {products.map((product, index) => {
+            const imageOnRight = index % 2 === 0;
+
+            return (
+              <article
+                key={product.id}
+                className="overflow-hidden rounded-4xl border border-border bg-background lg:rounded-[3rem]"
+              >
+                <div className="grid lg:grid-cols-2">
+                  {/* Product image */}
+                  <div
+                    className={`relative flex min-h-90 items-center justify-center overflow-hidden bg-cream/40 p-6 sm:min-h-[460px] sm:p-10 lg:min-h-[580px] lg:p-14 ${
+                      imageOnRight ? "lg:order-2" : "lg:order-1"
+                    }`}
+                  >
+                    <div className="relative min-h-77.5 w-full flex-1 sm:min-h-95">
                       <Image
                         src={product.image}
                         alt={product.title}
                         fill
                         priority={index === 0}
-                        sizes="(min-width: 1024px) 55vw, 100vw"
-                        className="object-contain"
+                        sizes="(min-width: 1024px) 50vw, 100vw"
+                        className="object-contain transition-transform duration-500 hover:scale-[1.03]"
                       />
                     </div>
 
@@ -74,13 +62,13 @@ export default function Products() {
                     </span>
                   </div>
 
-                  <div className="relative flex items-center px-6 py-12 sm:px-10 sm:py-16 lg:min-h-[680px] lg:px-16 lg:py-20">
+                  {/* Product information */}
+                  <div
+                    className={`flex items-center px-6 py-12 sm:px-10 sm:py-16 lg:min-h-145 lg:px-16 lg:py-20 ${
+                      imageOnRight ? "lg:order-1" : "lg:order-2"
+                    }`}
+                  >
                     <div className="w-full max-w-xl">
-                      <p className="text-sm font-medium uppercase tracking-[0.2em] text-text-light">
-                        {String(index + 1).padStart(2, "0")} /{" "}
-                        {String(products.length).padStart(2, "0")}
-                      </p>
-
                       <h2 className="mt-5 font-heading text-4xl font-medium leading-[1.05] text-primary-dark sm:text-5xl lg:text-6xl">
                         {product.title}
                       </h2>
@@ -121,67 +109,19 @@ export default function Products() {
                           ))}
                         </dl>
                       )}
+                      <Link
+                        href="/yhteystiedot"
+                        className="mt-10 inline-flex items-center gap-3 rounded-full bg-primary px-7 py-3.5 font-medium text-cream transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary-dark"
+                      >
+                        Ota yhteyttä
+                        <ArrowRight className="size-4" strokeWidth={1.8} />
+                      </Link>
                     </div>
                   </div>
-                </article>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-
-          <button
-            type="button"
-            aria-label="Edellinen tuote"
-            className="
-              products-page-prev
-              absolute bottom-4 left-4 z-20
-              flex size-11 items-center justify-center
-              rounded-full
-              border border-border
-              bg-background
-              text-primary-dark
-              shadow-sm
-              transition-colors duration-300
-              hover:bg-cream
-              disabled:cursor-not-allowed
-              disabled:opacity-30
-              lg:bottom-auto
-              lg:left-0
-              lg:top-1/2
-              lg:-translate-x-1/2
-              lg:-translate-y-1/2
-            "
-          >
-            <ChevronLeft className="size-4.5" strokeWidth={1.8} />
-          </button>
-
-          <button
-            type="button"
-            aria-label="Seuraava tuote"
-            className="
-              products-page-next
-              absolute bottom-4 right-4 z-20
-              flex size-11 items-center justify-center
-              rounded-full
-              bg-primary
-              text-cream
-              shadow-sm
-              transition-colors duration-300
-              hover:bg-primary-dark
-              disabled:cursor-not-allowed
-              disabled:opacity-30
-              lg:bottom-auto
-              lg:right-0
-              lg:top-1/2
-              lg:translate-x-1/2
-              lg:-translate-y-1/2
-            "
-          >
-            <ChevronRight className="size-4.5" strokeWidth={1.8} />
-          </button>
-        </div>
-
-        <div className="mt-8 flex justify-center">
-          <div className="products-page-pagination flex items-center" />
+                </div>
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>
