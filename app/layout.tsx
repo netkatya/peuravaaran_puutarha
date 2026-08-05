@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, DM_Serif_Display, Inter } from "next/font/google";
+import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
+
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 
@@ -15,9 +16,73 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
+const siteUrl = "https://peuravaaran-puutarha.vercel.app";
+
 export const metadata: Metadata = {
-  title: "Peuravaaran Puutarha Oy",
-  description: "Suomalaisia tomaatteja rakkaudesta luontoon",
+  metadataBase: new URL(siteUrl),
+
+  title: {
+    default: "Peuravaaran Puutarha Oy",
+    template: "%s | Peuravaaran Puutarha Oy",
+  },
+
+  description:
+    "Suomalaisia tomaatteja rakkaudesta luontoon. Kotimaiset tomaatit, erikoistomaatit, paprikat ja kurkut luonnonvalolla kasvatettuina Sauvossa.",
+
+  keywords: [
+    "Peuravaaran Puutarha",
+    "tomaatit",
+    "erikoistomaatit",
+    "paprika",
+    "kurkku",
+    "Sauvo",
+    "kasvihuone",
+    "kotimaiset vihannekset",
+    "Suomi",
+  ],
+
+  authors: [
+    {
+      name: "Peuravaaran Puutarha Oy",
+    },
+  ],
+
+  creator: "Peuravaaran Puutarha Oy",
+  publisher: "Peuravaaran Puutarha Oy",
+
+  openGraph: {
+    type: "website",
+    locale: "fi_FI",
+    url: siteUrl,
+    siteName: "Peuravaaran Puutarha Oy",
+    title: "Peuravaaran Puutarha Oy",
+    description: "Suomalaisia tomaatteja rakkaudesta luontoon.",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Peuravaaran Puutarha Oy",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Peuravaaran Puutarha Oy",
+    description: "Suomalaisia tomaatteja rakkaudesta luontoon.",
+    images: ["/og-image.jpg"],
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 export default function RootLayout({
